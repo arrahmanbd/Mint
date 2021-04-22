@@ -1,0 +1,700 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #242b27;
+      color: honeydew;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 1rem;
+
+    }
+
+    ::-webkit-scrollbar {
+      display: none;
+
+    }
+
+    ul {
+      list-style: none;
+      
+    }
+
+    input {
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+    }
+
+    label {
+      display: block;
+      float: left;
+      height: 100vh;
+      width: 40px;
+      overflow: hidden;
+      background: #913f86;
+      text-align: center;
+      font-size: 14px;
+      line-height: 50px;
+      transition: background 300ms ease;
+    }
+
+    li:nth-child(even)>input+label {
+      background: #2182af;
+    }
+
+    label:hover,
+    li:nth-child(even)>input+label:hover {
+      background: ;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    input[type="radio"]:checked~label {
+      background: ;
+      color: #fff;
+      cursor: default !important;
+      
+    }
+
+    .doc img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 50%;
+      border-radius: 12px;
+      -webkit-box-shadow: 0px 0px 5px 1px #000000;
+      box-shadow: 0px 0px 5px 1px #000000;
+    }
+
+    code {
+      background-color: rgb(63, 59, 59);
+      color: rgb(26, 235, 71);
+      padding: 2px;
+      border-radius: 10px;
+    }
+
+    .doc p {
+      text-align: justify;
+      padding: 12px;
+      color: rgb(190, 87, 168);
+    }
+
+    h1 {
+      font-size: 32px;
+    }
+
+    .page-3 a {
+      color: rgb(96, 175, 175);
+    }
+
+    .page-3 {
+      color: #2c6b6b;
+    }
+
+    .page-1 {
+      color: #0099ff;
+    }
+
+    .accslide {
+      display: block;
+      height: 100%;
+      width: 0px;
+      padding: 10px 0;
+      float: left;
+      overflow-x: hidden;
+      font-size: 18px;
+      line-height: 1.5;
+      transition: all 700ms ease;
+    }
+
+    .accslide * {
+      padding-left: 10px;
+    }
+
+    .accslide img {
+      margin-top: 10px;
+    }
+
+    input[type="radio"]:not(:checked)~label>* {
+      padding-left: 7px;
+      font-size: 1.4rem;
+      white-space: nowrap;
+      transform: rotate(90deg);
+    }
+
+    input[type="radio"]:checked~label>* {
+      display: none;
+    }
+
+    li:nth-child(1):nth-last-child(2) input[type="radio"]:checked~.accslide {
+      width: calc(100% - 80px);
+    }
+
+    li:nth-child(2):nth-last-child(1) input[type="radio"]:checked~.accslide {
+      width: calc(100% - 80px);
+    }
+
+    li:nth-child(1):nth-last-child(3) input[type="radio"]:checked~.accslide {
+      width: calc(100% - 120px);
+    }
+
+    li:nth-child(2):nth-last-child(2) input[type="radio"]:checked~.accslide {
+      width: calc(100% - 120px);
+    }
+
+    li:nth-child(3):nth-last-child(1) input[type="radio"]:checked~.accslide {
+      width: calc(100% - 120px);
+    }
+
+    li:nth-child(1):nth-last-child(4) input[type="radio"]:checked~.accslide {
+      width: calc(100% - 160px);
+    }
+
+    li:nth-child(2):nth-last-child(3) input[type="radio"]:checked~.accslide {
+      width: calc(100% - 160px);
+    }
+
+    li:nth-child(3):nth-last-child(2) input[type="radio"]:checked~.accslide {
+      width: calc(100% - 160px);
+    }
+
+    li:nth-child(4):nth-last-child(1) input[type="radio"]:checked~.accslide {
+      width: calc(100% - 160px);
+    }
+
+    li:nth-child(1):nth-last-child(5) input[type="radio"]:checked~.accslide {
+      width: calc(100% - 200px);
+    }
+
+    li:nth-child(2):nth-last-child(4) input[type="radio"]:checked~.accslide {
+      width: calc(100% - 200px);
+    }
+
+    li:nth-child(3):nth-last-child(3) input[type="radio"]:checked~.accslide {
+      width: calc(100% - 200px);
+    }
+
+    li:nth-child(4):nth-last-child(2) input[type="radio"]:checked~.accslide {
+      width: calc(100% - 200px);
+    }
+
+    li:nth-child(5):nth-last-child(1) input[type="radio"]:checked~.accslide {
+      width: calc(100% - 200px);
+    }
+
+    li:nth-child(1):nth-last-child(6) input[type="radio"]:checked~.accslide {
+      width: calc(100% - 240px);
+    }
+
+    li:nth-child(2):nth-last-child(5) input[type="radio"]:checked~.accslide {
+      width: calc(100% - 240px);
+    }
+
+    li:nth-child(3):nth-last-child(4) input[type="radio"]:checked~.accslide {
+      width: calc(100% - 240px);
+    }
+
+    li:nth-child(4):nth-last-child(3) input[type="radio"]:checked~.accslide {
+      width: calc(100% - 240px);
+    }
+
+    li:nth-child(5):nth-last-child(2) input[type="radio"]:checked~.accslide {
+      width: calc(100% - 240px);
+    }
+
+    li:nth-child(6):nth-last-child(1) input[type="radio"]:checked~.accslide {
+      width: calc(100% - 240px);
+    }
+
+    li:nth-child(1):nth-last-child(7) input[type="radio"]:checked~.accslide {
+      width: calc(100% - 280px);
+    }
+
+    li:nth-child(2):nth-last-child(6) input[type="radio"]:checked~.accslide {
+      width: calc(100% - 280px);
+    }
+
+    li:nth-child(3):nth-last-child(5) input[type="radio"]:checked~.accslide {
+      width: calc(100% - 280px);
+    }
+
+    li:nth-child(4):nth-last-child(4) input[type="radio"]:checked~.accslide {
+      width: calc(100% - 280px);
+    }
+
+    li:nth-child(5):nth-last-child(3) input[type="radio"]:checked~.accslide {
+      width: calc(100% - 280px);
+    }
+
+    li:nth-child(6):nth-last-child(2) input[type="radio"]:checked~.accslide {
+      width: calc(100% - 280px);
+    }
+
+    li:nth-child(7):nth-last-child(1) input[type="radio"]:checked~.accslide {
+      width: calc(100% - 280px);
+    }
+
+    li:nth-child(1):nth-last-child(8) input[type="radio"]:checked~.accslide {
+      width: calc(100% - 320px);
+    }
+
+    li:nth-child(2):nth-last-child(7) input[type="radio"]:checked~.accslide {
+      width: calc(100% - 320px);
+    }
+
+    li:nth-child(3):nth-last-child(6) input[type="radio"]:checked~.accslide {
+      width: calc(100% - 320px);
+    }
+
+    li:nth-child(4):nth-last-child(5) input[type="radio"]:checked~.accslide {
+      width: calc(100% - 320px);
+    }
+
+    li:nth-child(5):nth-last-child(4) input[type="radio"]:checked~.accslide {
+      width: calc(100% - 320px);
+    }
+
+    li:nth-child(6):nth-last-child(3) input[type="radio"]:checked~.accslide {
+      width: calc(100% - 320px);
+    }
+
+    li:nth-child(7):nth-last-child(2) input[type="radio"]:checked~.accslide {
+      width: calc(100% - 320px);
+    }
+
+    li:nth-child(8):nth-last-child(1) input[type="radio"]:checked~.accslide {
+      width: calc(100% - 320px);
+    }
+
+    a {
+      text-decoration: none;
+      color: darkgoldenrod;
+    }
+
+    hr {
+      border: 0;
+      padding: 12px;
+    }
+
+    .profile-img {
+      background-color: rgb(197, 225, 253);
+      width: 120px;
+      height: 120px;
+      border-radius: 100%;
+      text-align: center;
+    }
+
+
+    /*-----GridDiv-----*/
+    .profile {
+      padding: 60px;
+      color: #0099ff;
+      background-color: #2c312d;
+    }
+
+    .profile a {
+      color: #0099ff;
+      text-decoration: none;
+      padding: 4px;
+    }
+
+
+    .list {
+      color: #2c6b6b;
+      padding-left: 5px;
+      list-style-type: square;
+      list-style-position: inside;
+    }
+
+
+    .thank {
+      text-transform: uppercase;
+    }
+
+    .social li {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      transform: translateX(-10px);
+    }
+
+    .next {
+      float: right;
+      color: rgb(43, 180, 25);
+      position: relative;
+    }
+
+    span {
+      width: 72px;
+      height: 72px;
+    }
+
+    b {
+      color: rgb(76, 160, 209);
+    }
+
+    ul>li>svg {
+
+      padding: 5px;
+      height: 36px;
+      width: 36px;
+      transform: translateY(10px);
+    }
+
+    ul>li {
+      transform: translatex(10px);
+    }
+    .arrow{
+      width: 72px;
+      height: 72px;
+     
+    }
+  </style>
+</head>
+
+<body>
+  <ul>
+    <li>
+    <input id="rad1" type="radio" name="rad"
+        checked="checked" /><label for="rad1">
+        <div>Welcome !!!</div>
+      </label>
+      <div class="accslide">
+        <div class="content">
+          <div class="profile">
+            <div class="profile-card">
+
+              <svg class="profile-img" xmlns="http://www.w3.org/2000/svg" version="1.0" width="500.000000pt"
+                height="500.000000pt" viewBox="0 0 500.000000 500.000000" preserveAspectRatio="xMidYMid meet">
+
+                <g transform="translate(0.000000,500.000000) scale(0.100000,-0.100000)" fill="black" stroke="none">
+                  <path
+                    d="M2597 4714 c8 -21 -26 -43 -67 -44 -39 0 -54 -8 -63 -30 -3 -10 -6 -7 -6 8 -1 15 -9 26 -20 29 -11 3 -21 14 -23 26 -3 20 -3 20 -22 2 -17 -17 -19 -17 -27 -2 -8 13 -14 14 -37 5 -15 -5 -49 -12 -77 -15 -27 -2 -54 -8 -59 -13 -4 -4 -20 -5 -35 0 -18 5 -42 2 -67 -7 -21 -8 -50 -17 -64 -20 -14 -3 -48 -21 -76 -39 -28 -19 -56 -34 -62 -34 -18 0 -114 -113 -135 -160 -16 -34 -21 -64 -20 -122 2 -75 -11 -107 -20 -50 -3 19 -4 14 -6 -16 0 -23 6 -59 15 -80 9 -20 16 -54 15 -75 -1 -23 4 -44 14 -53 11 -11 13 -20 6 -28 -6 -7 -13 -31 -17 -54 -3 -23 -13 -47 -20 -53 -17 -14 -18 -36 -1 -42 8 -3 5 -10 -11 -22 -12 -9 -30 -31 -39 -48 -15 -31 -15 -31 2 -17 17 14 17 13 10 -9 -5 -18 -4 -22 5 -16 9 5 11 4 6 -3 -4 -7 -15 -12 -24 -12 -21 0 -44 -34 -36 -53 3 -8 -2 -20 -11 -27 -11 -10 -13 -16 -4 -26 9 -11 7 -15 -5 -20 -25 -9 -19 -26 7 -19 19 6 18 3 -11 -28 -19 -19 -29 -37 -24 -41 13 -8 42 3 42 17 0 6 3 7 7 4 11 -11 -29 -47 -52 -47 -18 0 -24 -7 -29 -37 -4 -21 -10 -47 -13 -58 -6 -20 -5 -20 16 -1 21 19 21 19 21 -5 0 -13 -4 -31 -10 -39 -5 -8 -5 -17 0 -20 4 -3 6 -26 3 -53 -4 -37 -10 -47 -24 -47 -9 0 -19 8 -21 17 -2 13 -6 11 -15 -10 -10 -22 -10 -25 2 -20 22 8 18 -20 -5 -34 -18 -12 -18 -15 -4 -50 10 -22 14 -52 11 -75 -3 -21 -1 -38 4 -38 5 0 9 5 9 12 0 8 3 9 10 2 11 -11 -6 -64 -21 -64 -4 0 -15 23 -25 50 -10 28 -26 58 -35 66 -15 14 -19 11 -47 -23 -29 -37 -35 -59 -33 -115 2 -41 17 -34 40 17 30 67 55 60 95 -25 28 -60 32 -80 15 -80 -27 0 -81 -35 -95 -63 -15 -27 -14 -35 1 -84 19 -59 12 -57 95 -28 39 13 75 64 52 72 -10 4 -10 7 1 17 8 6 22 49 32 96 21 96 86 305 107 341 21 38 52 67 73 71 11 2 20 11 20 21 0 10 11 27 25 37 14 11 19 20 11 20 -8 0 -11 6 -7 16 5 14 4 15 -9 4 -12 -10 -15 -10 -15 3 0 8 7 20 15 27 8 7 15 20 15 29 0 9 5 22 11 28 8 8 8 13 0 17 -34 22 7 69 47 55 28 -11 40 -38 21 -50 -8 -5 -9 -9 -3 -9 6 0 24 10 40 22 16 13 42 24 59 26 16 1 44 4 60 5 17 2 61 -2 99 -9 40 -7 81 -8 95 -4 14 5 47 11 74 15 26 3 53 12 59 19 7 7 21 11 31 8 12 -3 23 2 28 11 7 11 23 14 71 12 69 -3 163 -44 227 -98 19 -16 47 -34 63 -39 15 -5 28 -14 28 -19 0 -5 17 -9 38 -10 20 0 31 -3 25 -6 -7 -2 -13 -10 -13 -17 0 -15 65 -89 168 -192 39 -40 72 -78 72 -85 0 -14 48 -81 67 -92 7 -4 13 -12 13 -17 0 -5 18 -46 40 -91 38 -77 39 -84 25 -106 -9 -12 -25 -24 -38 -24 -25 -2 -62 -6 -92 -11 -11 -2 -23 -7 -26 -12 -4 -4 -16 -3 -28 3 -17 10 -21 9 -21 -4 0 -18 -16 -20 -27 -2 -8 11 -28 15 -83 16 -70 0 -89 -3 -94 -15 -3 -8 -18 -14 -34 -14 -16 0 -37 -9 -47 -20 -13 -14 -21 -17 -26 -9 -6 11 -25 -46 -21 -64 1 -4 -2 -16 -8 -27 -7 -13 -7 -27 0 -46 8 -20 7 -37 -3 -63 -8 -20 -18 -70 -21 -111 -6 -69 -5 -76 13 -88 12 -7 21 -8 21 -2 0 5 13 8 30 7 16 -1 30 -8 30 -14 0 -7 5 -13 10 -13 6 0 10 -4 10 -10 0 -5 11 -20 24 -33 17 -17 23 -32 20 -48 l-5 -24 11 23 c9 22 11 22 32 8 12 -9 30 -16 40 -16 20 0 110 -48 120 -64 3 -6 36 -23 73 -36 36 -14 80 -37 97 -52 18 -16 35 -28 40 -28 4 0 8 -27 8 -59 0 -49 -4 -62 -20 -74 -12 -8 -20 -20 -18 -27 2 -8 -11 -18 -29 -23 -18 -5 -33 -14 -33 -19 0 -24 -40 -45 -98 -53 -15 -2 -49 -11 -75 -19 -27 -8 -55 -12 -63 -9 -8 3 -14 1 -14 -5 0 -6 6 -13 13 -15 7 -3 5 -6 -5 -6 -10 -1 -18 5 -18 12 -1 7 -6 5 -14 -5 -25 -33 -49 -20 -62 35 -1 4 -3 10 -4 15 -1 4 -2 11 -1 16 1 4 -3 14 -9 21 -13 16 5 88 27 106 7 6 13 17 13 24 0 7 7 18 15 25 11 10 13 15 5 20 -7 4 -12 37 -13 79 0 58 -3 72 -18 76 -9 3 -20 13 -23 21 -3 9 -11 12 -18 8 -7 -5 -30 -9 -52 -9 -22 -1 -42 -7 -43 -12 -2 -6 -16 -24 -31 -40 -38 -42 -62 -72 -62 -79 0 -4 -13 -22 -30 -41 -16 -18 -30 -39 -30 -46 0 -22 -98 -110 -112 -101 -6 4 -8 3 -5 -3 7 -11 -13 -23 -37 -23 -6 0 -30 18 -53 39 -39 38 -70 51 -154 65 l-37 6 -6 -43 c-11 -69 7 -127 51 -168 22 -20 46 -39 54 -42 12 -5 12 -7 -1 -17 -18 -13 -185 -6 -244 11 -65 18 -107 50 -103 77 3 18 -2 26 -20 33 -32 12 -33 12 -33 -5 0 -8 -5 -16 -11 -18 -5 -2 -11 -10 -13 -18 -2 -8 -7 -23 -11 -33 -4 -11 -2 -28 5 -42 10 -19 19 -22 53 -21 34 2 47 -3 76 -29 20 -18 47 -34 61 -37 52 -11 138 -38 220 -68 47 -18 102 -35 122 -40 73 -15 88 -55 42 -116 -20 -26 -34 -34 -58 -34 -48 0 -157 25 -209 48 -26 12 -47 17 -47 11 0 -5 -6 -9 -13 -9 -7 0 -22 -6 -32 -14 -18 -13 -18 -17 -6 -40 8 -14 19 -26 24 -26 5 0 31 -22 57 -49 26 -27 67 -61 91 -75 77 -46 105 -74 94 -92 -13 -20 -79 -44 -122 -44 -18 0 -33 -5 -33 -11 0 -6 -7 -9 -15 -6 -8 4 -17 1 -21 -5 -4 -7 -10 -5 -16 6 -7 13 -17 16 -39 11 -16 -4 -29 -2 -29 3 0 15 -48 33 -53 19 -2 -8 -9 -7 -20 5 -9 9 -31 19 -47 23 -20 4 -35 16 -40 30 -5 13 -16 28 -25 33 -9 5 -16 11 -14 13 1 2 -1 14 -5 27 -5 15 -13 21 -22 18 -8 -3 -14 1 -14 9 0 8 -8 20 -18 27 -30 21 -84 131 -78 158 2 8 10 32 19 52 23 52 16 143 -14 169 -12 10 -26 19 -30 19 -4 0 -11 10 -15 22 -3 12 -19 36 -35 52 -16 17 -29 37 -29 45 0 7 -6 11 -14 8 -13 -5 -31 18 -28 35 1 5 -5 8 -14 8 -13 0 -15 -11 -12 -65 2 -45 -1 -66 -10 -70 -7 -2 -11 -9 -10 -14 4 -13 -138 -137 -174 -154 -16 -6 -28 -15 -28 -19 0 -5 -4 -8 -9 -8 -15 0 -135 -73 -148 -90 -7 -8 -10 -21 -8 -28 3 -7 0 -10 -6 -6 -16 10 -138 -121 -205 -222 -33 -49 -76 -126 -94 -170 -30 -70 -34 -89 -33 -166 0 -87 0 -87 -18 -66 -17 19 -20 20 -37 5 -9 -8 -30 -19 -47 -23 -16 -4 -35 -10 -40 -15 -30 -23 -168 -32 -380 -25 -107 4 -153 1 -272 -19 l-33 -6 0 -309 0 -310 630 0 c347 0 630 2 630 5 0 2 -14 28 -31 57 -46 77 -75 181 -73 255 2 55 8 72 49 140 26 43 84 139 128 213 74 126 107 170 128 170 4 0 13 -18 19 -41 13 -47 2 -114 -30 -184 -11 -24 -20 -47 -20 -51 0 -13 -93 -159 -107 -167 -15 -9 -8 -27 11 -27 7 0 22 9 34 20 12 11 25 20 30 20 9 0 24 31 37 78 5 16 13 22 28 20 20 -3 22 1 19 37 -2 35 -1 38 10 20 15 -25 20 -66 9 -80 -4 -5 -2 -32 5 -60 12 -46 13 -40 7 75 -4 69 -7 211 -7 315 l-1 190 42 140 c43 144 73 265 74 300 l0 20 9 -20 c5 -11 18 -99 30 -195 12 -96 27 -193 35 -215 8 -22 17 -69 19 -104 3 -35 7 -66 10 -69 3 -3 0 -12 -7 -20 -9 -12 -9 -14 0 -9 8 5 15 -2 19 -20 4 -15 9 -32 13 -38 3 -5 6 -21 7 -35 1 -14 3 -27 4 -30 1 -3 2 -8 2 -11 -1 -4 3 -20 7 -37 6 -19 5 -34 -2 -41 -7 -7 -3 -13 14 -19 31 -12 102 -96 112 -133 4 -15 23 -51 42 -81 19 -29 35 -58 35 -64 0 -6 9 -23 20 -37 11 -14 20 -31 21 -39 0 -7 16 -33 35 -58 19 -25 37 -53 40 -62 4 -10 13 -18 20 -18 8 0 14 -4 14 -9 0 -20 98 -43 198 -47 119 -4 192 9 242 42 43 29 86 32 95 5 3 -11 13 -25 22 -32 14 -12 15 -10 9 17 -5 22 -2 34 9 44 8 7 15 21 15 31 0 27 20 34 21 7 0 -23 0 -23 11 2 6 14 10 30 9 36 -2 18 25 35 43 28 12 -5 14 -10 6 -20 -9 -10 -5 -13 19 -12 17 1 31 5 31 10 0 4 -4 8 -8 8 -5 0 -16 6 -26 13 -16 12 -15 15 11 43 15 17 37 41 47 54 19 23 20 23 27 5 4 -11 11 -33 14 -50 7 -27 8 -28 15 -10 5 11 9 52 9 91 1 39 4 74 8 78 4 4 15 -3 25 -16 l18 -23 1 25 c2 40 18 -47 18 -102 1 -27 -3 -48 -9 -48 -5 0 -10 -12 -10 -26 0 -39 -99 -136 -188 -184 -76 -41 -107 -49 -115 -27 -7 20 -17 3 -10 -21 l5 -22 1159 0 1159 0 0 208 0 207 -73 42 c-39 23 -92 47 -117 53 -25 6 -81 20 -125 30 -44 10 -103 29 -130 41 -28 12 -89 32 -136 45 -47 12 -108 33 -135 47 -27 14 -101 46 -164 72 -102 42 -126 48 -213 52 l-98 6 8 -29 c9 -33 8 -248 -1 -263 -4 -6 -24 -9 -46 -8 -35 1 -39 4 -44 32 -2 16 -4 55 -2 85 3 88 -13 208 -33 248 -20 39 -156 187 -358 390 -68 68 -123 130 -123 139 0 8 31 58 69 111 73 104 145 228 177 305 10 26 35 67 55 90 20 22 47 62 60 87 13 25 42 74 64 110 97 156 147 276 180 435 9 44 27 103 40 130 12 28 28 68 35 90 7 22 27 76 45 120 18 44 38 98 45 120 7 22 30 76 50 120 21 44 42 94 48 110 32 91 41 359 17 501 -9 50 -22 85 -44 117 -17 25 -31 56 -31 68 0 30 -61 140 -116 206 -24 30 -44 58 -44 62 0 12 -155 165 -215 213 -100 79 -169 127 -196 139 -15 5 -29 18 -31 27 -4 15 -82 58 -193 107 -28 13 -122 32 -190 39 -17 1 -48 -3 -70 -10 -39 -12 -37 -14 18 -18 15 -1 37 -28 31 -38 -7 -12 -62 -10 -69 2 -9 15 -25 12 -19 -4 7 -19 -22 -28 -36 -10 -7 8 -30 14 -54 14 -30 0 -37 3 -26 10 8 5 24 10 35 10 30 1 73 36 59 50 -7 7 -19 8 -35 2 -14 -6 -34 -6 -47 -1 -15 6 -21 5 -17 -1 4 -6 -1 -13 -9 -16 -9 -3 -16 -12 -16 -19 0 -7 -19 -16 -46 -20 -34 -5 -48 -12 -51 -26 -6 -21 -23 -26 -23 -6 0 17 34 45 65 53 14 3 22 11 19 16 -4 5 -15 8 -25 5 -10 -3 -17 0 -16 7 1 6 -8 10 -23 8 -30 -4 -52 -22 -27 -22 9 0 17 -4 17 -10 0 -5 -11 -10 -25 -10 -20 0 -25 5 -25 24 0 13 -7 26 -14 29 -10 4 -13 1 -9 -9z m250 -30 c-3 -3 -12 -4 -19 -1 -8 3 -5 6 6 6 11 1 17 -2 13 -5z m-252 -54 c3 -6 0 -13 -8 -16 -8 -3 -18 -15 -22 -27 -7 -20 -8 -20 -12 7 -6 35 26 62 42 36z m515 -10 c0 -5 -2 -10 -4 -10 -3 0 -8 5 -11 10 -3 6 -1 10 4 10 6 0 11 -4 11 -10z m-584 -15 c-3 -8 -1 -15 4 -15 6 0 10 -4 10 -10 0 -15 -19 -12 -36 4 -18 19 -18 24 4 29 9 3 19 5 21 6 2 0 1 -6 -3 -14z m340 -11 c-3 -9 -6 -19 -6 -24 0 -4 -13 -13 -30 -20 -34 -14 -40 -30 -11 -30 17 0 18 -3 8 -24 -7 -14 -16 -21 -21 -16 -5 5 -15 6 -22 3 -17 -6 -18 9 -1 26 10 11 8 13 -10 8 -16 -3 -23 -1 -23 9 0 8 8 14 18 14 9 0 24 4 32 10 11 7 8 11 -15 21 l-30 12 50 12 c68 17 68 17 61 -1z m-502 -19 c12 -9 16 -20 12 -32 -7 -17 -8 -17 -22 1 -12 17 -14 18 -14 3 0 -9 -3 -17 -7 -17 -5 0 -18 -3 -30 -6 -17 -5 -23 -2 -23 11 0 11 5 15 15 11 8 -3 15 -1 15 4 0 6 -4 10 -10 10 -5 0 -10 5 -10 11 0 5 4 8 8 5 4 -2 14 -1 22 5 19 11 21 11 44 -6z m274 3 c-7 -19 -38 -22 -38 -4 0 10 9 16 21 16 12 0 19 -5 17 -12z m-200 -5 c-10 -2 -26 -2 -35 0 -10 3 -2 5 17 5 19 0 27 -2 18 -5z m42 -17 c0 -31 -23 -43 -50 -26 -13 9 -13 11 0 20 15 10 50 14 50 6z m60 -16 c0 -5 -5 -10 -11 -10 -5 0 -7 5 -4 10 3 6 8 10 11 10 2 0 4 -4 4 -10z m695 -29 c-7 -7 -87 -10 -98 -3 -5 2 2 10 15 16 16 9 33 9 55 2 18 -5 31 -12 28 -15z m-786 -18 c17 -10 29 -22 28 -28 -6 -16 -52 -12 -53 5 -2 31 -6 34 -14 13 -5 -13 -16 -23 -25 -23 -19 0 -19 6 3 29 22 24 24 25 61 4z m606 7 c-3 -5 -21 -10 -38 -10 -41 0 -89 -31 -77 -49 4 -8 15 -11 24 -8 8 3 18 2 21 -2 7 -12 -44 -44 -60 -37 -8 3 -15 1 -17 -3 -2 -5 -26 -10 -55 -13 l-52 -5 24 19 c13 10 33 18 44 18 12 0 21 6 21 14 0 8 6 16 13 19 9 4 9 7 -1 18 -10 11 -17 9 -38 -14 -17 -19 -35 -27 -59 -27 -18 0 -46 -5 -62 -12 -15 -6 -32 -10 -37 -9 -4 1 -13 -5 -20 -13 -6 -8 -23 -18 -39 -22 -22 -5 -26 -3 -21 10 4 11 1 16 -10 16 -9 0 -16 5 -16 10 0 6 5 10 11 10 7 0 9 9 6 21 -5 19 -2 21 22 16 17 -4 36 0 47 8 28 21 35 18 28 -10 l-6 -24 63 25 c35 14 70 31 76 36 7 6 25 8 39 5 14 -2 47 1 72 8 58 16 105 19 97 5z m-543 -12 c-9 -9 -15 -9 -24 0 -9 9 -7 12 12 12 19 0 21 -3 12 -12z m582 -23 c-4 -8 -8 -15 -10 -15 -2 0 -4 7 -4 15 0 8 4 15 10 15 5 0 7 -7 4 -15z m-744 -5 c0 -5 -4 -10 -10 -10 -5 0 -10 5 -10 10 0 6 5 10 10 10 6 0 10 -4 10 -10z m670 -10 c0 -5 -2 -10 -4 -10 -3 0 -8 5 -11 10 -3 6 -1 10 4 10 6 0 11 -4 11 -10z m-410 -92 c0 -4 -11 -8 -24 -8 -27 0 -42 -15 -26 -25 5 -3 10 -14 10 -23 -1 -14 -4 -13 -19 6 -11 13 -26 20 -34 16 -20 -7 -60 14 -51 27 3 6 24 7 49 4 26 -4 45 -3 49 3 7 12 46 12 46 0z m520 -3 c8 -5 25 -10 39 -11 13 -2 29 -8 35 -14 7 -7 -14 -8 -69 -3 -76 6 -122 24 -92 36 17 8 70 2 87 -8z m-644 -46 c10 -17 -8 -28 -38 -22 -38 7 -36 33 1 33 17 0 33 -5 37 -11z m694 -9 c11 -7 7 -10 -18 -10 -20 0 -31 4 -27 10 8 13 26 13 45 0z m-87 -16 c57 -17 -32 -53 -148 -61 l-60 -5 22 21 c12 12 27 21 33 21 6 0 13 7 17 16 3 9 13 14 24 11 11 -3 16 -1 13 5 -6 10 53 5 99 -8z m-193 -4 c0 -5 -4 -10 -10 -10 -5 0 -10 5 -10 10 0 6 5 10 10 10 6 0 10 -4 10 -10z m-43 -56 c-3 -3 -12 -4 -19 -1 -8 3 -5 6 6 6 11 1 17 -2 13 -5z m303 -49 c11 -13 8 -15 -13 -15 -26 0 -42 12 -30 24 11 11 30 7 43 -9z m43 8 c-7 -2 -19 -2 -25 0 -7 3 -2 5 12 5 14 0 19 -2 13 -5z m-110 -10 c-7 -2 -19 -2 -25 0 -7 3 -2 5 12 5 14 0 19 -2 13 -5z m73 -47 c12 -13 12 -15 -3 -20 -23 -7 -84 9 -63 17 17 6 43 15 48 16 2 1 10 -5 18 -13z m-50 -151 c-31 -16 -62 -13 -51 5 3 5 23 10 43 10 l37 0 -29 -15z m239 -95 c-3 -5 -18 -10 -33 -10 -21 0 -24 2 -12 10 20 13 53 13 45 0z m-1488 -74 c-3 -7 -1 -18 4 -23 6 -6 0 -24 -16 -47 -29 -43 -24 -65 5 -26 l20 25 0 -27 c0 -14 3 -34 7 -43 5 -14 2 -16 -15 -11 -11 4 -23 2 -27 -4 -3 -5 -14 -10 -24 -10 -13 0 -17 -8 -17 -33 0 -22 -10 -46 -29 -70 -36 -45 -60 -49 -59 -9 1 38 13 55 34 49 9 -2 22 4 29 14 7 12 7 19 1 19 -16 0 -12 46 6 61 13 10 17 10 26 -2 8 -11 9 -11 4 3 -4 14 25 115 41 141 8 12 15 8 10 -7z m1567 3 c29 -8 36 -13 25 -20 -8 -5 -10 -9 -4 -9 5 0 4 -5 -3 -12 -16 -16 -15 -28 2 -28 8 0 18 -5 22 -11 4 -6 -1 -10 -12 -8 -11 1 -30 -1 -44 -5 -14 -4 -57 -6 -95 -4 l-70 3 45 11 45 11 -43 8 c-23 4 -45 11 -47 15 -6 10 51 24 64 16 5 -3 16 -3 25 0 12 5 14 10 6 19 -20 24 23 31 84 14z m-1630 -63 c-3 -8 -12 -12 -20 -9 -17 6 -9 23 11 23 8 0 12 -6 9 -14z m58 -204 c-28 -27 -33 -28 -49 -15 -10 8 -13 12 -6 8 15 -7 47 40 38 55 -4 6 1 18 11 25 17 12 20 11 28 -15 8 -26 5 -33 -22 -58z m-112 -61 c0 -6 -4 -13 -10 -16 -5 -3 -10 1 -10 9 0 9 5 16 10 16 6 0 10 -4 10 -9z m-30 -36 c0 -14 -21 -70 -47 -125 -37 -77 -53 -99 -71 -103 -18 -4 -23 -1 -19 12 3 9 10 39 17 66 20 79 22 83 30 50 6 -25 8 -27 15 -12 4 9 5 29 2 43 -4 20 0 28 15 32 11 3 17 10 14 18 -8 22 4 44 25 44 14 0 19 -7 19 -25z m87 -30 c-4 -8 -11 -15 -17 -15 -6 0 -6 7 2 20 14 22 24 19 15 -5z m-257 -351 c-18 -21 -24 -10 -9 18 8 14 14 18 17 10 2 -7 -2 -19 -8 -28z m22 -169 c7 -55 5 -75 -7 -63 -3 3 -8 23 -9 44 -2 22 -7 50 -11 63 -6 18 -5 23 6 19 9 -3 17 -27 21 -63z m1228 -910 c7 -8 12 -38 12 -65 0 -40 -4 -55 -22 -70 -27 -24 -73 -26 -94 -5 -8 8 -22 15 -30 15 -32 0 -15 36 42 87 62 56 73 61 92 38z m-521 -391 c2 -2 -3 -10 -11 -17 -12 -12 -25 -13 -69 -4 -62 12 -69 15 -50 27 13 7 120 3 130 -6z m-799 -275 c0 -6 -4 -7 -10 -4 -5 3 -10 11 -10 16 0 6 5 7 10 4 6 -3 10 -11 10 -16z m-40 -60 c0 -6 -4 -7 -10 -4 -5 3 -10 11 -10 16 0 6 5 7 10 4 6 -3 10 -11 10 -16z m1234 -1123 c-7 -19 -25 -17 -32 4 -3 7 0 10 6 6 6 -3 14 -1 17 5 10 15 17 5 9 -15z" />
+                  <path d="M1732 3545 c0 -16 2 -22 5 -12 2 9 2 23 0 30 -3 6 -5 -1 -5 -18z" />
+                  <path
+                    d="M2467 4713 c-15 -14 -6 -23 22 -23 31 0 49 14 32 24 -5 4 -13 2 -16 -4 -5 -8 -11 -8 -19 -1 -7 6 -16 8 -19 4z" />
+                  <path d="M2960 4660 c0 -5 5 -10 11 -10 5 0 7 5 4 10 -3 6 -8 10 -11 10 -2 0 -4 -4 -4 -10z" />
+                  <path d="M1530 3270 c0 -5 5 -10 10 -10 6 0 10 5 10 10 0 6 -4 10 -10 10 -5 0 -10 -4 -10 -10z" />
+                  <path
+                    d="M2125 3002 c-23 -2 -36 -12 -50 -38 -10 -19 -23 -34 -29 -33 -21 3 -76 -14 -76 -23 0 -5 20 -7 45 -5 42 3 66 -6 51 -20 -4 -4 -28 -10 -54 -14 -120 -19 -138 -23 -150 -35 -7 -8 -21 -19 -32 -27 -19 -13 -23 -26 -21 -67 1 -18 14 -36 42 -57 37 -29 49 -32 105 -32 35 1 62 4 59 9 -8 13 25 41 44 38 11 -2 17 -16 19 -46 3 -42 5 -45 55 -68 29 -13 59 -24 68 -24 27 0 79 -21 79 -32 0 -6 -9 -8 -20 -5 -11 3 -20 2 -20 -2 0 -17 -148 -20 -181 -4 -38 18 -109 32 -109 21 0 -41 76 -119 136 -138 43 -15 122 -8 167 15 17 8 69 25 116 36 125 30 157 51 196 129 18 36 36 81 38 99 3 19 10 37 15 40 12 8 12 61 0 61 -5 0 -7 4 -4 8 8 14 -76 80 -95 75 -4 -1 -17 9 -29 22 -13 14 -31 25 -41 25 -10 0 -20 4 -23 9 -11 18 -181 71 -236 73 -8 0 -19 4 -25 7 -5 4 -24 5 -40 3z m45 -242 c11 -7 -2 -10 -42 -10 -32 0 -58 4 -58 10 0 13 80 13 100 0z m-5 -140 c3 -5 -3 -10 -15 -10 -12 0 -18 5 -15 10 3 6 10 10 15 10 5 0 12 -4 15 -10z m125 -10 c0 -13 -5 -18 -15 -14 -12 5 -13 10 -4 20 15 19 19 18 19 -6z" />
+                  <path
+                    d="M1836 2890 c-73 -23 -86 -35 -64 -56 20 -20 59 -13 87 15 11 11 35 25 55 32 20 7 36 17 36 21 0 13 -52 8 -114 -12z" />
+                  <path d="M1380 2600 c0 -8 5 -22 10 -30 9 -13 10 -13 10 0 0 8 -5 22 -10 30 -9 13 -10 13 -10 0z" />
+                  <path
+                    d="M1659 2038 c0 -2 -3 -18 -6 -37 -4 -34 22 -101 40 -101 4 0 6 4 3 8 -2 4 -1 14 4 21 10 18 -8 71 -23 68 -7 -1 -11 7 -9 21 2 12 1 22 -2 22 -3 0 -6 -1 -7 -2z" />
+                  <path d="M1996 2021 c-3 -5 1 -12 10 -15 20 -8 29 -1 19 13 -8 13 -22 14 -29 2z" />
+                  <path
+                    d="M1946 1975 c-8 -8 -24 -15 -35 -15 -11 0 -23 -4 -26 -10 -3 -5 -14 -10 -24 -10 -25 0 -60 -40 -67 -78 -4 -18 -10 -32 -15 -32 -17 0 -9 -36 11 -53 35 -30 55 -18 86 53 17 40 52 80 69 80 15 0 65 53 65 68 0 17 -46 15 -64 -3z" />
+                  <path
+                    d="M1506 333 c7 -55 -43 -217 -90 -292 l-26 -41 135 0 136 0 -70 136 c-56 107 -71 145 -71 179 0 24 -4 46 -9 49 -5 4 -7 -10 -5 -31z" />
+                  <path d="M1295 326 c-17 -12 -16 -13 8 -18 18 -4 27 -1 27 8 0 20 -15 25 -35 10z" />
+                  <path d="M2951 274 c0 -11 3 -14 6 -6 3 7 2 16 -1 19 -3 4 -6 -2 -5 -13z" />
+                  <path
+                    d="M1299 238 c-3 -27 -4 -34 -18 -66 -12 -28 -10 -55 3 -41 12 12 34 109 25 114 -5 4 -10 0 -10 -7z" />
+                </g>
+              </svg>
+              <h1 class="name">AR Rahman</h1>
+              <h3 class="tagline">Front-End Developer</h3>
+            </div>
+            <div class="social">
+              <ul class="social-list">
+                <li class="email"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="">
+                    <path fill="#0099cc"
+                      d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z">
+                    </path>
+                  </svg><a href="mailto: arrahman.bd@outlook.com">arrahman.bd@outlook.com</a></li>
+                <li class="phone"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="">
+                    <path fill="#0099cc"
+                      d="M493.4 24.6l-104-24c-11.3-2.6-22.9 3.3-27.5 13.9l-48 112c-4.2 9.8-1.4 21.3 6.9 28l60.6 49.6c-36 76.7-98.9 140.5-177.2 177.2l-49.6-60.6c-6.8-8.3-18.2-11.1-28-6.9l-112 48C3.9 366.5-2 378.1.6 389.4l24 104C27.1 504.2 36.7 512 48 512c256.1 0 464-207.5 464-464 0-11.2-7.7-20.9-18.6-23.4z">
+                    </path>
+                  </svg><a href="tel:+8801300337544">+880 9611362642</a></li>
+                <li class="website"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" data-fa-i2svg="">
+                    <path fill="#0099cc"
+                      d="M336.5 160C322 70.7 287.8 8 248 8s-74 62.7-88.5 152h177zM152 256c0 22.2 1.2 43.5 3.3 64h185.3c2.1-20.5 3.3-41.8 3.3-64s-1.2-43.5-3.3-64H155.3c-2.1 20.5-3.3 41.8-3.3 64zm324.7-96c-28.6-67.9-86.5-120.4-158-141.6 24.4 33.8 41.2 84.7 50 141.6h108zM177.2 18.4C105.8 39.6 47.8 92.1 19.3 160h108c8.7-56.9 25.5-107.8 49.9-141.6zM487.4 192H372.7c2.1 21 3.3 42.5 3.3 64s-1.2 43-3.3 64h114.6c5.5-20.5 8.6-41.8 8.6-64s-3.1-43.5-8.5-64zM120 256c0-21.5 1.2-43 3.3-64H8.6C3.2 212.5 0 233.8 0 256s3.2 43.5 8.6 64h114.6c-2-21-3.2-42.5-3.2-64zm39.5 96c14.5 89.3 48.7 152 88.5 152s74-62.7 88.5-152h-177zm159.3 141.6c71.4-21.2 129.4-73.7 158-141.6h-108c-8.8 56.9-25.6 107.8-50 141.6zM19.3 352c28.6 67.9 86.5 120.4 158 141.6-24.4-33.8-41.2-84.7-50-141.6h-108z">
+                    </path>
+                  </svg><a href="http://arrahmanbd.blogspot.com" target="_blank">arrahmanbd.blogspot.com</a></li>
+                <li class="linkedin">
+                  <svg fill="#0099cc" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path
+                      d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z" />
+                  </svg>
+
+                  <a href="#" target="_blank">facebook.com/arrahman.me</a>
+                </li>
+                <li class="github"><svg fill="#0099cc" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                    viewBox="0 0 24 24">
+                    <path
+                      d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                  </svg><a href="#" target="_blank">github.com/arrahmanbd</a></li>
+              </ul>
+              <svg class="arrow" xmlns="http://www.w3.org/2000/svg" fill="#0099ff"width="24" height="24" viewBox="0 0 24 24"><path d="M10.024 4h6.015l7.961 8-7.961 8h-6.015l7.961-8-7.961-8zm-10.024 16h6.015l7.961-8-7.961-8h-6.015l7.961 8-7.961 8z"/></svg>
+              <br>
+              <h3 class="thank">A great big thank you !</h3>
+
+            </div>
+          </div>
+          <!--Intro-End-->
+        </div>
+      </div>
+    </li>
+    <li>
+     <input id="rad2" type="radio"
+        name="rad" /><label for="rad2">
+        <div>Instruction</div>
+        <div style="margin-top:340;padding-bottom:23px;width:50%;">Page 1</div>
+      </label>
+      <div class="accslide">
+        <div class="content">
+          <div class="doc">
+            <h1>Introduction</h1>
+            <p>Hello and thank you for using Mint Business Startup Landing Page Template. Mint is
+              an HTML landing page template built with Bootstrap featuring image gallery,
+              lightbox details, pricing and contact form.
+              <br>
+              Built with Bootstrap 5, HTML5, CSS3, AOS and JavaScript it will help you achieve
+              your online marketing goals in a beautiful and efficient manner.
+              Frameworks and toolkits used: Bootstrap 5, Popper, jQuery, jQuery Easingr,Isotope,AOS Library.
+            </p>
+            <p>You can edit the template's Html, Css, Js files with your preferred text and
+              code editor: <a href="https://notepad-plus-plus.org/">Notepad++</a>, <a
+                href="https://code.visualstudio.com/">Visual Code</a>, <a
+                href="https://www.sublimetext.com/">Sublime</a> or any other...
+              For image editing you can use <a href="https://www.gimp.org/">GIMP</a> or <a href="https://www.adobe.com/products/photoshop.html">Adobe Photoshop</a>
+              any other graphic editor of your choice.</p>
+            <hr>
+            <h1>FILES STRUCTURE</h1>
+            <p>
+              <b>Documentation</b> - is the folder of this help file.
+              <br><b>Mint</b> - contains the html, css, js and image files of the template.
+              <br>
+              This folder includes <b>index.html</b> file which you will use to open the
+              template.That will be your default homepage.
+            </p>
+            
+              <b>Besides, you
+                will also find the following folders:</b>
+            </p>
+            <h1>MAIN FOLDERS &amp; FILES</h1>
+            <p>
+              <b>css</b> - Bootstrap, Font Awesome,AOS,dark.min and the
+              template's custom stylesheet styles.css
+              <br>
+              <b>img</b> - Images used throughout the template including the favicon
+              and logo
+              <br>
+              <b>js</b> - JavaScript files for Bootstrap Bundle, jQuery, jQuery Easing,AOS Script,Isotope gallery and
+              Our's custom scripts: main.js
+              <br>
+              <b>fonts</b> - Font Awesome files
+              <br>
+              <b>index.html</b> - It's your homepage.
+            </p>
+            <h3>Optional Files :</h3>
+             <p>
+              <b>classic.html</b> is the Classic version of the template. This is optional.If
+              you like it, you can set it as homepage of your site by renaming it as <b>index.html</b>
+              Or if you don't like it, you can simply <b>remove</b> this file. <br> </p>
+            <h1>IMAGES</h1>
+            <p>You can find your own images while checking out the following free online
+              sources: <br>
+              <b>unDrow: <a href="https://undraw.co/">https://undraw.co/</a></b>
+              <br>
+              <b>Freepik: <a href="https://www.pexels.com/">https://www.freepik.com/home</a>
+              </b>
+              <br>
+              <b>Pexels: <a href="https://www.pexels.com/">https://www.pexels.com/</a></b>
+
+            <h1>MAKING CHANGES</h1>
+            <h3>Changing Logo</h3>
+            <P>
+
+              Logo changing is simple like eating banana. Open <b>[index.html]</b> file with your favourite code
+              editor.
+              Now go to <b> [Navigation Section]</b> , it's located on body tag.
+              <br>
+              Find this line and change it with your Brand Name.
+            </p>
+            <br><code> &lt;a class=&quot;navbar-brand js-scroll-trigger&quot; data-aos=&quot;zoom-out&quot; data-aos-delay=&quot;250&quot; href=&quot;#page-top&quot;&gt;
+                &lt;b&gt;Brand&lt;/b&gt;&lt;span&gt;name&lt;/span&gt;
+                &lt;!--Uncomment For Image Logo--&gt;
+                &lt;!--&lt;img src=&quot;img/logo.png&quot; alt=&quot;Mint&quot;&gt;--&gt;
+                &lt;i class=&quot;fa fa-star&quot;&gt;&lt;/i&gt;
+              &lt;/a&gt;</code>
+            <br>
+            <p>It will create a modern stylish animated logo , if you dont like it and want to use your image logo: <br>
+
+              Copy your image file to img folder as [logo.png] and uncomment the line and remove text logo like this:
+            </p>
+            <br>
+            <code>
+                  &lt;a class=&quot;navbar-brand js-scroll-trigger&quot; data-aos=&quot;zoom-out&quot; data-aos-delay=&quot;250&quot; href=&quot;#page-top&quot;&gt;
+                  &lt;img src=&quot;img/logo.png&quot; alt=&quot;Mint&quot;&gt;
+                   &lt;i class=&quot;fa fa-star&quot;&gt;&lt;/i&gt;
+                 &lt;/a&gt;
+                </code>
+            <br>
+            <p> REMEMBER:
+              <b>Image height should not more than 35px;</b>
+            </p>
+            <hr>
+
+            <h3>Font Awesome Icons</h3>
+            <p>Here I uses <a href="http://fontawesome.io/">Font Awesome</a> icon font in many
+              sections and elements.
+            <p>To change one of the Font Awesome icons you can simply replace the classes that
+              you'll find in index.html e.g. fa-arrow, fa-toggle-on, fa-phone with the ones
+              that you need from <a href="http://fontawesome.io/icons/">http://fontawesome.io/icons/</a></p>
+
+            <hr>
+            <h3>Contact& Social Links</h3>
+            <p>To change social media links & icons of the template, you need to:
+              <br>- Open <b>index.html</b> with code editor.
+              <br>- Find the section "Bottominfo" in the FooterSection:
+              <br>- And replace icons such as- <code>fa-facebook</code>, <code>fa-twitter</code>, and so
+              on... with the classes name that you
+              need from <a href="http://fontawesome.io/icons/">http://fontawesome.io/icons/</a> in the
+              Brand Icons section
+              <br>- Also replace <code>href="#your-link"</code>
+              with the link to your social page or account. <br>
+              <br>Social Links are also available on the Navigation Section.
+              <br>- Now go to Navigation Section then DropDown and then change links  like before.
+            </p>
+            <hr>
+            <h3>Changing Regular Section</h3>
+
+            <p>
+              This template divided into intelligent Section,if you want to customize any section or text or any link or
+              paragraph,simply open <b>index.html</b> file with your favourite code editor and go Find out the section
+              and customize as you want.
+              <br>
+              Mainly text are located into:
+              <code>&lt;h2&gt;Text&lt;/h2&gt;,&lt;h3&gt;Text&lt;/h3&gt;,&lt;p&gt;Text&lt;/p&gt;</code>
+
+              <br>
+              Links are located into <code>&lt;a href="#"&gt; &lt;/a&gt;</code> Change the <b>#</b> with your link & the
+              text after it.
+            </p>
+            <hr>
+            <h3>Social Media Tips</h3>
+            <p>If you want to control the way the posts look like when you share the landing
+              page on social media (Facebook, Google+ and LinkedIn especially) don't forget to
+              update the OG Meta Tags (OpenGraph) in the Head section of the <b>index.html</b>
+              file.
+              <code class="code-format">
+&lt;meta property="og:site_name" content="" /&gt; &lt;!-- website name --&gt;
+&lt;meta property="og:site" content="" /&gt; &lt;!-- website link --&gt;
+&lt;meta property="og:title" content=""/&gt; &lt;!-- title shown in the actual shared post --&gt;
+&lt;meta property="og:description" content="" /&gt; &lt;!-- description shown in the actual shared post --&gt;
+&lt;meta property="og:image" content="" /&gt; &lt;!-- image link, make sure it's jpg --&gt;
+&lt;meta property="og:url" content="" /&gt; &lt;!-- where do you want your post to link to --&gt;
+&lt;meta property="og:type" content="article" /&gt;
+</code>
+              <br>
+
+              <hr>
+            <h3>Tips for Customization:</h3>
+            <b>1.Press [CTRL + F] to Find any Text or Section Easily on code editor like VS Code & others. </b><br>
+            <b>2.Text Logo is highly recomended for fresh design. </b>
+            <!--docEND-->
+          </div>
+        </div>
+      </div>
+      </div>
+    </li>
+    <li>
+     <input id="rad3" type="radio"
+        name="rad" /><label for="rad3">
+        <div>Advanced Setup</div>
+        <div style="margin-top:340;padding-bottom:23px;width:50%;">Page 2</div>
+      </label>
+      <div class="accslide">
+        <div class="content">
+          <div class="doc">
+            <h1>Changing Default Style Sheet</h1>
+            <p>
+              Color is Fun.We care your favourite colours.Change Your template as you like. <br>
+                 [!] Make a copy of index.html file if anything goes WRONG <br>
+              <br>
+              Simply open <b>index.html</b> with your favourite code editor.
+              You will see this line on head tag:
+              <br>
+              <code>&lt;link id=&quot;swap&quot; href=&quot;css/styles.css&quot; rel=&quot;stylesheet&quot;&gt;</code>
+              <br>
+              Simply change the <b>styles.css</b> with the colour name available here.
+            </p>
+              <h2>Available Colors: <b>Black,Red,Violet,Blue</b></h2>
+              <br>
+             
+              <b>EXAMPLE:</b>
+              <p>
+              Suppose, your favourite color is <b> Violet </b> and you want to set it.<br>
+            
+              Open <b>index.html </b>with your favourite code editor.
+              Now change the line like below on head tag.
+              <br>
+              <code>
+              &lt;link id=&quot;swap&quot; href=&quot;css/violet.css&quot; rel=&quot;stylesheet&quot;&gt;
+             </code>
+              <br>
+              Now save it
+              <br>
+              and see the Magic.
+              <br>
+              [!] Remember: Available Colours are  [<b>Black,Red,Violet,Blue</b>]
+            </p>
+          </div>
+        </div>
+      </div>
+    </li>
+    <li>
+     <input id="rad4" type="radio"
+        name="rad" /><label for="rad4">
+        <div>Support !</div>
+        <div style="margin-top:340;padding-bottom:23px;width:50%;">Page 3</div>
+      </label>
+      <div class="accslide">
+        <div class="content page-3">
+          <h3>SUPPORT</h3>
+          <p>Don't hesitate to send your questions at <a
+              href="mailto:arrahaman.bd@outlook.com">arrahman.bd@outlook.com</a> and I
+            will try to
+            help and at least, you are in the right direction.</p>
+          <hr>
+          <h3>Special Thanks</h3>
+
+          <ul style="list-style: square inside;margin-bottom:40px">
+            <li><a href="https://getbootstrap.com" target="_blank" rel="nofollow">Bootstrap v5.0</a></li>
+            <li><a href="https://jquery.com/" target="_blank" rel="nofollow">jQuery v3.3.1</a></li>
+            <li><a href="https://www.google.com/webfonts" target="_blank" rel="nofollow">Google Fonts</a></li>
+            <li><a href="https://michalsnik.github.io/aos/" target="_blank" rel="nofollow">AOS</a></li>
+            <li><a href="https://fontawesome.com/" target="_blank" rel="nofollow">FontAwesome</a></li>
+            <li><a href="https://getbootstrap.com/" target="_blank" rel="nofollow">Bootstrap Bundle</a></li>
+            <li><a href="https://isotope.metafizzy.co/" target="_blank" rel="nofollow">Isotope</a></li>
+            <li><a href="https://undrow.co/" target="_blank" rel="nofollow">UnDrow</a></li>
+          </ul>
+          <div style="text-align:center;padding-top: 90px;">
+            <h3>Mint - Business StartUp Landing Page </h3>
+            <p> <br> by <br> <a href="http://facebook.com/arrahman.me">AR Rahman</a><br> on 14 April 2021
+            </p>
+            <h4 class="text-center">Thank You, Allah Hafiz!</h4>
+          </div>
+        </div>
+      </div>
+      </div>
+    </li>
+  </ul>
+</body>
+</html>
