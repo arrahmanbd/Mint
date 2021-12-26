@@ -1,1 +1,1 @@
-# mint.github.io
+# arrahman.github.io/mint
